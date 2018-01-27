@@ -25,10 +25,17 @@ public class MainActivity extends AppCompatActivity {
         editPassword = (EditText) findViewById(R.id.editPassword);
         btnLogin = (Button) findViewById(R.id.btnLogin);
 
+        // action ketika tombol di klik
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, editUsername.getText(), Toast.LENGTH_SHORT).show();
+
+                // memunculkan popup di bagian bawah
+                Toast.makeText(
+                        MainActivity.this,
+                        "Username: " + editUsername.getText() + "\n Password: " + editPassword.getText(),
+                        Toast.LENGTH_LONG).show();
+
             }
         });
     }
