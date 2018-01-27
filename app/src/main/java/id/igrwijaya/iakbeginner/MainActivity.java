@@ -1,5 +1,6 @@
 package id.igrwijaya.iakbeginner;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
+                homeIntent.putExtra("username", editUsername.getText().toString());
+                startActivity(homeIntent);
 
                 // memunculkan popup di bagian bawah
                 Toast.makeText(
