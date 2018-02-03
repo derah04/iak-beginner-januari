@@ -35,30 +35,36 @@ public class MainActivity extends AppCompatActivity {
                 String username = editUsername.getText().toString();
                 String password = editPassword.getText().toString();
 
-                if(username.isEmpty()){
-                    Toast.makeText(
-                            MainActivity.this,
-                            "Username harus diisi!",
-                            Toast.LENGTH_LONG).show();
-                }else if(password.isEmpty()){
-                    Toast.makeText(
-                            MainActivity.this,
-                            "Password harus diisi!",
-                            Toast.LENGTH_LONG).show();
-                }else if(username.equals("stikom") && password.equals("jimbaran")){
+                boolean statusLogin = checkLogin(username, password);
+                if(statusLogin == true){
                     Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
                     homeIntent.putExtra("username", editUsername.getText().toString());
                     startActivity(homeIntent);
-                }else{
-                    // memunculkan popup di bagian bawah
-                    Toast.makeText(
-                            MainActivity.this,
-                            "Password dan Username tidak sesuai, coba lagi",
-                            Toast.LENGTH_LONG).show();
                 }
 
             }
         });
+    }
+
+    private boolean checkLogin(String username, String password){
+        boolean isAcceptLogin = false;
+        if(username.isEmpty()){ // apakah field usernamenya kosong
+            isAcceptLogin = false;
+            Toast.makeText(this, "Username harus diisi", Toast.LENGTH_LONG).show();
+        }else if(password.isEmpty()){ //apakah field passwordnya kosong
+            isAcceptLogin = false;
+            Toast.makeText(this, "Password harus diisi", Toast.LENGTH_LONG).show();
+        }else if(username.equals("stikom")
+                && password.equals("jimbaran")){
+            // apakah username dan password sudah sesuai
+            Toast.makeText(this, "Berhasil Login", Toast.LENGTH_LONG).show();
+            isAcceptLogin = true;
+        }else{ // jika username dan password sudah terisi tapi tidak sesuai
+            isAcceptLogin = false;
+            Toast.makeText(this, "Username dan Password tidak sesuai", Toast.LENGTH_LONG).show();
+        }
+
+        return isAcceptLogin;
     }
 
     private void belajarStatement(){
