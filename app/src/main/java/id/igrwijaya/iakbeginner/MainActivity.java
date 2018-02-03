@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         // connecting variable to element view in xml
         editUsername = (EditText) findViewById(R.id.editUsername);
         editPassword = (EditText) findViewById(R.id.editPassword);
@@ -65,12 +63,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void belajarStatement(){
 
-        String status = "pacaran";
+        String status = "jomblo";
+        int umur = 20;
 
-        if(status.equals("jomblo")){
+        if(status.equals("jomblo")){ // perbandingan string menggunakan .equals
             Log.e("BASIC_IF", "Kasian");
         }else{
             Log.e("BASIC_IF", "Kapan nikah?");
+        }
+
+        if(umur == 20){ // menggunakan == != > < >= <=
+            Log.e("TEST", "Muda");
+        }else if(umur > 20){
+            Log.e("test", "Tua");
         }
 
         switch(status){

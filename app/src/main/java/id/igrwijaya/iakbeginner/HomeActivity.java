@@ -14,24 +14,18 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        txtUsername = (TextView) findViewById(R.id.txtUsername);
-
-        String username = getIntent().getStringExtra("username");
-        txtUsername.setText(username);
-
         namaMethod(); // no return (void)
         String saya = statusSaya(); // return String
         int umur = umurSaya(2000, 2018);
         int umur2 = umurSaya(1998, 2018);
-        Log.e("MAIN_ACTIVITY",
-                saya);
+        Log.e("MAIN_ACTIVITY", saya);
+        Log.e("MAIN_ACTIVITY", String.valueOf(umur));
+        Log.e("MAIN_ACTIVITY", String.valueOf(umur2));
 
-        Log.e("MAIN_ACTIVITY",
-                String.valueOf(umur));
+        txtUsername = (TextView) findViewById(R.id.txtUsername);
 
-        Log.e("MAIN_ACTIVITY",
-                String.valueOf(umur2));
-
+        String username = getIntent().getStringExtra("username");
+        txtUsername.setText(username);
     }
 
     private String statusSaya(){
