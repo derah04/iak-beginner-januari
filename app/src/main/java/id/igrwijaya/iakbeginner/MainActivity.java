@@ -37,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
                 boolean statusLogin = checkLogin(username, password);
                 if(statusLogin == true){
-                    Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
-                    homeIntent.putExtra("username", editUsername.getText().toString());
+                    Intent homeIntent = new Intent(MainActivity.this,
+                            HomeActivity.class);
+                    homeIntent.putExtra("username",
+                            editUsername.getText().toString());
                     startActivity(homeIntent);
                 }
 
