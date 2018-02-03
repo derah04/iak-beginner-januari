@@ -21,18 +21,43 @@ public class JadwalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jadwal);
-
         // connection to ui / xml
         listJadwal = (ListView) findViewById(R.id.listJadwal);
-
         //variable array;
-        final String[] staticJadwalList = new String[]{
-                "Jadwal 1", //0
-                "Jadwal 2", //1
-                "Jadwal 3", //2
-                "Jadwal 4", //3
-                "Jadwal 5" //4
-        };
+
+        // mengambil variable pada saat intent
+        String pilihanHari = getIntent().getStringExtra("pilihan_jadwal");
+        String[] staticJadwalList;
+
+        switch (pilihanHari) {
+            case "SENIN":
+                staticJadwalList = new String[]{
+                        "Jadwal SENIN 1", //0
+                        "Jadwal SENIN 2", //1
+                        "Jadwal SENIN 3", //2
+                        "Jadwal SENIN 4", //3
+                        "Jadwal SENIN 5" //4
+                };
+                break;
+            case "SELASA":
+                staticJadwalList = new String[]{
+                        "Jadwal SELASA 1", //0
+                        "Jadwal SELASA 2", //1
+                        "Jadwal SELASA 3", //2
+                        "Jadwal SELASA 4", //3
+                        "Jadwal SELASA 5" //4
+                };
+                break;
+            default:
+                staticJadwalList = new String[]{
+                        "Jadwal 1", //0
+                        "Jadwal 2", //1
+                        "Jadwal 3", //2
+                        "Jadwal 4", //3
+                        "Jadwal 5" //4
+                };
+                break;
+        }
 
         //looping / perulangan
         // index dimulai dari 0

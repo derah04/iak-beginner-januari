@@ -1,26 +1,41 @@
 package id.igrwijaya.iakbeginner;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
     TextView txtUsername;
-
+    Button btnSenin;
+    Button btnSelasa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        btnSenin = (Button) findViewById(R.id.btnSenin);
+        btnSelasa = (Button) findViewById(R.id.btnSelasa);
+        btnSenin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent jadwalActivity = new Intent(HomeActivity.this, JadwalActivity.class);
+                jadwalActivity.putExtra("pilihan_jadwal", btnSenin.getText().toString());
+                startActivity(jadwalActivity);
+            }
+        });
 
-        namaMethod(); // no return (void)
-        String saya = statusSaya(); // return String
-        int umur = umurSaya(2000, 2018);
-        int umur2 = umurSaya(1998, 2018);
-        Log.e("MAIN_ACTIVITY", saya);
-        Log.e("MAIN_ACTIVITY", String.valueOf(umur));
-        Log.e("MAIN_ACTIVITY", String.valueOf(umur2));
+        btnSelasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent jadwalActivity = new Intent(HomeActivity.this, JadwalActivity.class);
+                jadwalActivity.putExtra("pilihan_jadwal", btnSenin.getText().toString());
+                startActivity(jadwalActivity);
+            }
+        });
 
         txtUsername = (TextView) findViewById(R.id.txtUsername);
 
