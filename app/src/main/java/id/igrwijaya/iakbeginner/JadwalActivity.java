@@ -50,11 +50,7 @@ public class JadwalActivity extends AppCompatActivity {
                 break;
             default:
                 staticJadwalList = new String[]{
-                        "Jadwal 1", //0
-                        "Jadwal 2", //1
-                        "Jadwal 3", //2
-                        "Jadwal 4", //3
-                        "Jadwal 5" //4
+                        "Jadwal Tidak Ditemukan", //0
                 };
                 break;
         }
