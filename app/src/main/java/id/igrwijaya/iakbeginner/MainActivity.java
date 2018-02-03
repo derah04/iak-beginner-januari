@@ -3,6 +3,7 @@ package id.igrwijaya.iakbeginner;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         // connecting variable to element view in xml
         editUsername = (EditText) findViewById(R.id.editUsername);
         editPassword = (EditText) findViewById(R.id.editPassword);
@@ -31,19 +34,67 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
-                homeIntent.putExtra("username", editUsername.getText().toString());
-                startActivity(homeIntent);
+                String username = editUsername.getText().toString();
+                String password = editPassword.getText().toString();
 
-                // memunculkan popup di bagian bawah
-                Toast.makeText(
-                        MainActivity.this,
-                        "Username: " + editUsername.getText() + "\n Password: " + editPassword.getText(),
-                        Toast.LENGTH_LONG).show();
+                if(username.isEmpty()){
+                    Toast.makeText(
+                            MainActivity.this,
+                            "Username harus diisi!",
+                            Toast.LENGTH_LONG).show();
+                }else if(password.isEmpty()){
+                    Toast.makeText(
+                            MainActivity.this,
+                            "Password harus diisi!",
+                            Toast.LENGTH_LONG).show();
+                }else if(username.equals("stikom") && password.equals("jimbaran")){
+                    Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
+                    homeIntent.putExtra("username", editUsername.getText().toString());
+                    startActivity(homeIntent);
+                }else{
+                    // memunculkan popup di bagian bawah
+                    Toast.makeText(
+                            MainActivity.this,
+                            "Password dan Username tidak sesuai, coba lagi",
+                            Toast.LENGTH_LONG).show();
+                }
 
             }
         });
     }
+
+    private void belajarStatement(){
+
+        String status = "pacaran";
+
+        if(status.equals("jomblo")){
+            Log.e("BASIC_IF", "Kasian");
+        }else{
+            Log.e("BASIC_IF", "Kapan nikah?");
+        }
+
+        switch(status){
+            case "jomblo":
+                Log.e("BASIC_IF", "Kasian");
+                break;
+            case "pacaran":
+                Log.e("BASIC_IF", "Kapan Nikah?");
+                break;
+            case "Ga Jelas":
+                Log.e("BASIC_IF", "Ga Jelas juga nasibmu");
+                break;
+            default:
+                Log.e("BASIC_IF", "Status Tidak Ditemukan");
+                break;
+        }
+    }
+
+
+
+
+
+
+
 
 
 }
